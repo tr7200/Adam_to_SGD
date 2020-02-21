@@ -27,7 +27,9 @@ Usage:
     
     def SWATS(x=train_x,
               y=train_y,
-              ...)
+              ...,
+              *args,
+              **kwargs)
     
     result = model.fit(train_x,
                        train_y,
