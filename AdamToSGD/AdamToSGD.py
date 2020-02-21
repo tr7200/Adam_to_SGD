@@ -23,7 +23,7 @@ Usage:
     ...
     model.compile(...)    
     
-    AdamToSGD_ = [AdamToSGD(after_training_with_Adam=SWATS(x=train_x, y=train_y, ...))]
+    AdamToSGD_ = [AdamToSGD(on_train_end=SWATS(x=train_x, y=train_y, ...))]
     
     def SWATS(x=train_x,
               y=train_y,
@@ -38,7 +38,6 @@ Usage:
                        validation_split=0.05)
 
 MIT License
-
 """
 
 import keras.backend as K
@@ -51,16 +50,9 @@ class AdamToSGD(EarlyStopping):
     Modified version of EarlyStopping callback that switches to the SGD
     optimizer from Adam following arXiv 1712.07628.
    
-    - Monitors learning rate according to (4) from arXiv 1712.07628
-    - If (4) evaluates to true, stops training early and starts
-      training using separate SWATS function (SWitching from Adam To SGD)
-      with SGD optimizer.
-   
-    Referencese:
-    -https://arxiv.org/abs/1712.07628
-    -https://github.com/keras-team/keras/issues/7874#issuecomment-329347949
-    -https://stackoverflow.com/a/47633305
-   
+   Args:
+        SWATS (fcn): Function that re-compiles model with SGD optimizer
+        and restarts training (see documentation for example
     """
 
     def __init__(self, on_train_end, **kwargs):
