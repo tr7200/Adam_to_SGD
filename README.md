@@ -32,7 +32,6 @@ Usage:
               ...,
               x=None,          # model.fit statements
               y=None,
-              *args,
               **kwargs):
         """
         This functions restarts training if condition 4 from 
