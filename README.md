@@ -34,8 +34,9 @@ Usage:
               y=None,
               **kwargs):
         """
-        This functions restarts training if condition 4 from 
-        1712.07628 is satisfied in the callback
+        This user-defined function restarts training if condition 4 from 
+        1712.07628 is satisfied in the callback.
+        Define optimizer, compile it, and fit model again in one function.
         """
         lr = float(K.get_value(model.optimizer.lr))
         bias_corrected_exponential_avg = lr / (1. - K.get_value(model.optimizer.beta_2))
@@ -63,8 +64,11 @@ Usage:
 
 
 If condition (4) from arXiv 1712.07628 is satisfied, training will end early and
-restart with the SGD optimizer using the last learning rate value from Adam before 
-that condition.
+restart with the user-defined SWATS function using the SGD optimizer with the last 
+learning rate value from Adam before that condition.
+
+Tensorflow < 2.0, Keras 2.3.1 or lower. No plans to port to Tensorflow 2.0 but I 
+may port it to PyTorch in the future.
 
 This callback is more suitable for training with image or text data for hundreds of 
 epochs.
