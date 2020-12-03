@@ -48,9 +48,7 @@ from keras.callbacks import EarlyStopping
 
 
 class AdamToSGD(EarlyStopping):
-    """
-    Modified version of EarlyStopping callback that switches to the SGD
-    optimizer from Adam following arXiv 1712.07628.
+    """Modified version of EarlyStopping callback that switches from SGD to Adam.
    
    Args:
         SWATS (fcn): Function that re-compiles model with SGD optimizer
