@@ -67,8 +67,7 @@ If condition (4) from arXiv 1712.07628 is satisfied, training will end early and
 restart with the user-defined SWATS function using the SGD optimizer with the last 
 learning rate value from Adam before that condition.
 
-Tensorflow < 2.0, Keras 2.3.1 or lower. No plans to port to Tensorflow 2.0 but I 
-may port it to PyTorch in the future.
+Tensorflow < 2.0, Keras 2.3.1 or lower.
 
 This callback is more suitable for training with image or text data for hundreds of 
 epochs.
