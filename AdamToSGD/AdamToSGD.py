@@ -42,22 +42,27 @@ Usage:
 MIT License
 """
 
-import keras.backend as K
+
+
 from keras.optimizers import SGD
 from keras.callbacks import EarlyStopping
+import keras.backend as K
 
 
 class AdamToSGD(EarlyStopping):
     """Modified version of EarlyStopping callback that switches from SGD to Adam.
    
-   Args:
+    ARGS:
         SWATS (fcn): Function that re-compiles model with SGD optimizer
-        and restarts training (see documentation for example
+        and restarts training (see documentation for example)
+        
+    RETURNS:
+        Restarted training using SGD optimizer once conditions are met
     """
 
     def __init__(self, on_train_end, **kwargs):
         self.on_train_end = SWATS
-        super(AdamToSGD,self).__init__(**kwargs)
+        super(AdamToSGD, self).__init__(**kwargs)
         
     def on_epoch_end(self, epoch, logs={}):
         lr = self.model.optimizer.lr
