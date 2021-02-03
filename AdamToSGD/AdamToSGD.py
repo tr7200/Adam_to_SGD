@@ -52,11 +52,11 @@ import keras.backend as K
 class AdamToSGD(EarlyStopping):
     """Modified version of EarlyStopping callback that switches from SGD to Adam.
    
-    ARGS:
+    Args:
         SWATS (fcn): Function that re-compiles model with SGD optimizer
         and restarts training (see documentation for example)
         
-    RETURNS:
+    Returns:
         Restarted training using SGD optimizer once conditions are met
     """
 
