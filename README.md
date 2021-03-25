@@ -77,8 +77,8 @@ epochs.
 *Update 2021-05-21*
 
 If you're having difficulty running this or implementing it in TF 2.0, just train 
-with the Adam optimizer and use the early stopping callback with the learning rate 
-from the paper. Then manually restart training using the SGD optimizer. All this 
-callback does is automate the process of stopping and restarting training.
+with the Adam optimizer and change the early stopping callback to monitor the learning 
+rate (stop at the LR value from paper). Then manually restart training using the SGD 
+optimizer. All this callback does is automate that whole process.
 
 MIT License
