@@ -1,15 +1,15 @@
 # Adam2SGD
 
-Modified version of Keras' EarlyStopping callback that switches to the SGD
-optimizer from Adam following arXiv 1712.07628:
+This is a modified version of Keras' EarlyStopping callback that switches to the 
+SGD optimizer from Adam following arXiv 1712.07628:
 
     Keskar, N. S., & Socher, R. (2017).
     Improving generalization performance by switching from adam to sgd.
     arXiv preprint arXiv:1712.07628.
        
 - The callback monitors learning rate according to (4) from arXiv 1712.07628
-- If (4) from that paper is satisfied, the callback stops training early and
-starts training using separate SWATS function (Switching from Adam To SGD) with
+- If condition (4) from that paper is satisfied, the callback stops training early 
+and starts training using separate SWATS function (Switching from Adam To SGD) with
 SGD optimizer that uses the learning rate that satisfied (4).
        
 Usage:
